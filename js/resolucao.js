@@ -4,30 +4,58 @@ const html = "<html><head><title>Gulliver Traveller - Roteiros</title></head><bo
 
 // O nome das cidades avaliadas
 
-const cidades = 
+var cidadeLista = html.split("*");
+var cidadelUm = cidadeLista[1];
+var cidadeDois = cidadeLista[3];
+var cidadeTres = cidadeLista[5];
+
+const cidades = cidadelUm + ", " + cidadeDois + ", " + cidadeTres;
 document.write("<b>Cidade avaliadas:</b>" + "<br>");
-document.write(cidades + "<br>"); 
+document.write(cidades + "<br><br>");
 
 // O conteúdo do roteiro A de cada cidade avaliada
 
-const roteiroA = 
+var roteiroALista = html.split("#");
+var avaliacaoUm = roteiroALista[1];
+var avaliacaoDois = roteiroALista[4];
+var avaliacaoTres = roteiroALista[7];
+
+const roteiroA = avaliacaoUm + "<br>" + avaliacaoDois + "<br>" + avaliacaoTres;
 document.write("<b>Roteiros A de cada cidade:</b>" + "<br>");
-document.write(roteiroA + "<br>"); 
+document.write(roteiroA + "<br>");
 
 // Quantos locais são citados no roteiro A de cada cidade
 
-const quantidadesLocais =
+var divisaoBr = avaliacaoUm.split("<br>");
+var divisaoPonto = divisaoBr[1].split(";");
+var quantidadeLocalUm = divisaoPonto.length;
+
+var divisaoBr = avaliacaoDois.split("<br>");
+var divisaoPonto = divisaoBr[1].split(";");
+var quantidadeLocalDois = divisaoPonto.length;
+
+var divisaoBr = avaliacaoTres.split("<br>");
+var divisaoPonto = divisaoBr[1].split(";");
+var quantidadeLocalTres = divisaoPonto.length;
+
+const quantidadesLocais = quantidadeLocalUm + ", " + quantidadeLocalDois + ", " + quantidadeLocalTres
 document.write("<b>Quantidade de locais citados em cada roteiro A:</b>" + "<br>");
-document.write(quantidadesLocais + "<br>"); 
+document.write("Roteiro A São Paulo = " + quantidadeLocalUm + "<br>Roteiro A Las Vegas = " + quantidadeLocalDois + "<br>Roteiro A Moscou = " + quantidadeLocalTres + "<br><br>");
 
 // O nome dos pontos turísticos localizados no bairro Centro da cidade de São Paulo
 
-const pontosSP =
+var centro = roteiroALista[2];
+var pontosCentro = centro.split("<br>");
+
+const pontosSP = pontosCentro[1];
 document.write("<b>Pontos turísticos no bairro Centro de São Paulo:</b>" + "<br>");
-document.write(pontosSP + "<br>"); 
+document.write(pontosSP + "<br><br>");
 
 // O nome dos pontos turísticos localizados no bairro Downtown da cidade de Los Angeles
 
-const pontosLA =
+var downtown = roteiroALista[4];
+var pontosDowntown = downtown.split("<br>");
+
+const pontosLA = pontosDowntown[1];
 document.write("<b>Pontos turísticos no bairro Centro de Los Angeles:</b>" + "<br>");
-document.write(pontosLA + "<br>"); 
+document.write(pontosLA + "<br>");
